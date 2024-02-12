@@ -2,6 +2,7 @@ import { useState } from 'react'
 import viteLogo from '/vite.svg'
 import './App.css'
 import BaristaForm from './Components/BaristaForm';
+import RecipeChoices from './Components/RecipeChoices';
 
 function App() {
   const [count, setCount] = useState(0)
