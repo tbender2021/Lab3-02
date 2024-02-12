@@ -91,20 +91,23 @@ const BaristaForm = () => {
                     </button>
                 </div>
                 <form >
-                    <h3>Temperature</h3>
-                    <div className="answer-space" id={correct_temp}>
-                        {inputs["temperature"]}
+                    <div className="mini-container">
+                        <h3>Temperature</h3>
+                        <div className="answer-space" id={correct_temp}>
+                            {inputs["temperature"]}
+                        </div>
+                        <RecipeChoices
+                            handleChange={(e) =>
+                                setInputs((prevState) => ({
+                                    ...prevState,
+                                    [e.target.name]: e.target.value,
+                                }))
+                            }
+                            label="temperature"
+                            choices={ingredients["temperature"]}
+                            currentVal={inputs["temperature"]}
+                        />
                     </div>
-                    <RecipeChoices
-                        handleChange={(e) => setInputs((prevState) => ({
-                            ...prevState,
-                            [e.target.name]: e.target.value,
-                        }))}
-                        label="temperature"
-                        choices={ingredients["temperature"]}
-                        checked={inputs["temperature"]}
-                    />
-
                     <h3>Milk</h3>
                     <div className="answer-space" id={correct_milk}>
                         {inputs["milk"]}
