@@ -38,15 +38,41 @@ const BaristaForm = () => {
             'blended': ''
         });
         setCheckedTemperature('');
-setCheckedSyrup('');
-setCheckedMilk('');
-setCheckedBlended('');
+        setCheckedSyrup('');
+        setCheckedMilk('');
+        setCheckedBlended('');
 
         getNextDrink();
     };
 
     const onCheckAnswer = () => {
+        if (trueRecipe.temp != inputs['temperature']) {
+            setCheckedTemperature('wrong');
+        }
+        else {
+            setCheckedTemperature("correct");
+        }
 
+        if (trueRecipe.milk != inputs['milk']) {
+            setCheckedMilk('wrong');
+        }
+        else {
+            setCheckedMilk("correct");
+        }
+
+        if (trueRecipe.syrup != inputs['syrup']) {
+            setCheckedSyrup('wrong');
+        }
+        else {
+            setCheckedSyrup("correct");
+        }
+
+        if (trueRecipe.blended != inputs['blended']) {
+            setCheckedBlended('wrong');
+        }
+        else {
+            setCheckedBlended("correct");
+        }
     };
 
 
@@ -66,7 +92,7 @@ setCheckedBlended('');
                 </div>
                 <form >
                     <h3>Temperature</h3>
-                    <div className="answer-space" >
+                    <div className="answer-space" id={correct_temp}>
                         {inputs["temperature"]}
                     </div>
                     <RecipeChoices
@@ -80,7 +106,7 @@ setCheckedBlended('');
                     />
 
                     <h3>Milk</h3>
-                    <div className="answer-space" >
+                    <div className="answer-space" id={correct_milk}>
                         {inputs["milk"]}
                     </div>
                     <RecipeChoices
@@ -94,7 +120,7 @@ setCheckedBlended('');
                     />
 
                     <h3>Syrup</h3>
-                    <div className="answer-space" >
+                    <div className="answer-space" id={correct_syrup}>
                         {inputs["syrup"]}
                     </div>
                     <RecipeChoices
@@ -108,7 +134,7 @@ setCheckedBlended('');
                     />
 
                     <h3>Blended</h3>
-                    <div className="answer-space" >
+                    <div className="answer-space" id={correct_blended}>
                         {inputs["blended"]}
                     </div>
                     <RecipeChoices
